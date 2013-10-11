@@ -1,0 +1,8 @@
+/Users/steven/git/e424_crazyflie/lab3.c:36: undefined reference to `xQueueGenericCreate'
+/Users/steven/git/e424_crazyflie/lab3.c:36: undefined reference to `xQueueGenericSend'
+/Users/steven/git/e424_crazyflie/lab3.c:39: undefined reference to `xQueueGenericSend'
+liblab3.a(lab3.o): In function `calculateOrientation':
+/Users/steven/git/e424_crazyflie/lab3.c:48: undefined reference to `xQueueGenericReceive'
+collect2: error: ld returned 1 exit status
+make: *** [all] Error 1
+
