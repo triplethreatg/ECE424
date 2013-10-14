@@ -1,16 +1,21 @@
 // HSE 72 MHz internal clock
 
-#include "stm32f10x_conf.h"
+//#include "stm32f10x_conf.h"
+#include "stm32f10x.h"
 #include "lab3.h"
 
 #include "FreeRTOS.h"
-#include "StackMacros.h"
+//#include "StackMacros.h"
 #include "semphr.h"
 #include "task.h"
 #include "portmacro.h"
 
 unsigned char pidControl = 1;
 uint8_t count = 0;
+
+// Structures to initialize the motor timers
+TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+TIM_OCInitTypeDef  TIM_OCInitStructure;
 
 // Global semaphore handler
 xSemaphoreHandle semaphore;
@@ -43,7 +48,7 @@ void TIM3_Configuration(void)
   TIM3->CR1 = 0x00;
   
   // set prescale value
-  TIM3->PSC = (uint16_t)(36000000/24) - 1;
+  TIM3->PSC = (uint16_t)(72000000/24) - 1;
   TIM3->CR1 |= TIM_CR1_ARPE;    // Auto-reload preload enabled
   //TIM3->ARR = 15530;		// Auto reload value
   TIM3->ARR = 100;
@@ -123,7 +128,7 @@ void TIM4_Configuration(void)
   // clear CR1 register
   TIM4->CR1 = 0x00;
   // set prescale value
-  TIM4->PSC = (uint16_t)(36000000/24) - 1;
+  TIM4->PSC = (uint16_t)(72000000/24) - 1;
   TIM4->CR1 |= TIM_CR1_ARPE;		// Auto-reload enable
   //TIM4->ARR = 30380;			// Set auto reload value
   TIM4->ARR = 2400;
@@ -288,7 +293,7 @@ void task_updatePid(void *pvParameters)
   // Execute & delay
   while(1){
     updatePid(p_motorSpeedsPtr);
-    setMotors();
+    //setMotor1((uint16_t)(24 * p_motorSpeedsPtr->m1));
     vTaskDelay(1000);
   }
 }
@@ -345,26 +350,52 @@ void task_Configuration(void)
   while(semaphore == NULL);
   
   // Task Creations
-  xTaskCreate(task_detectEmergency, NULL, configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 5), NULL);
-  xTaskCreate(task_refreshSensorData, NULL, configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 4), NULL);
-  xTaskCreate(task_calculateOrientation, NULL, configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 3), NULL);
-  xTaskCreate(task_updatePid, NULL, configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 2), NULL);
-  xTaskCreate(task_logDebugInfo, NULL, configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 1), NULL);
-  xTaskCreate(task_rLED, NULL, configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL);
-  xTaskCreate(task_gLED, NULL, configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL);
+  xTaskCreate(task_detectEmergency, (signed char *) "Emergency", configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 5), NULL);
+  xTaskCreate(task_refreshSensorData, (signed char *) "Refresh", configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 4), NULL);
+  xTaskCreate(task_calculateOrientation, (signed char *) "Orientation", configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 3), NULL);
+  xTaskCreate(task_updatePid, (signed char *) "Update", configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 2), NULL);
+  xTaskCreate(task_logDebugInfo, (signed char *) "Log", configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 1), NULL);
+  xTaskCreate(task_rLED, (signed char *) "REDLED", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL);
+  xTaskCreate(task_gLED, (signed char *) "GREENLED" , configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL);
   
 }
 
+void TIM_Configuration(void)
+{
+  // Initialize the motor timers
+  TIM_TimeBaseStructure.TIM_Period = 2400;
+  TIM_TimeBaseStructure.TIM_Prescaler = (uint16_t)(72000000/24)-1;
+  TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+  TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
 
+  // Set timers to PWM mode
+  TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
+  TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+  TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High; 
+  
+}
+
+void setMotor1(uint16_t step)
+{
+  TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);
+  TIM_OCInitStructure.TIM_Pulse = step;
+
+  TIM_OC4Init(TIM3, &TIM_OCInitStructure);
+  TIM_OC4PreloadConfig(TIM3, TIM_OCPreload_Enable);
+}
+
+// /*
 void vApplicationStackOverflowHook( xTaskHandle pxTask, signed char *pcTaskName )
 {
     ( void ) pxTask;
     ( void ) pcTaskName;
     while(1);
 }
+// */
 
 int main(void)
 {
+  
   // setup SYSCLK
   SYSCLK_Configuration();
   
@@ -395,14 +426,17 @@ int main(void)
   GPIO_PinRemapConfig(GPIO_PartialRemap_TIM3, ENABLE);
   
   // Setup timers
-  TIM3_Configuration();
-  TIM4_Configuration();
+  //TIM3_Configuration();
+  //TIM4_Configuration();
+  TIM_Configuration();
   
   // FreeRTOS initialization
   task_Configuration();
   
   // start scheduler
   vTaskStartScheduler();
+  
+  while(1);
   
   return 0;
 }
