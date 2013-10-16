@@ -26,7 +26,7 @@ CFLAGS += -Iconfig
 
 # build all relevant files and create .elf
 all:
-	$(CC) $(CFLAGS) $(STM_STARTUP)/startup_stm32f10x_md.s $(TARGET).c liblab3.a $(RTOS_SRC)/portable/MemMang/heap_2.c $(RTOS_SRC)/tasks.c $(RTOS_SRC)/queue.c $(RTOS_SRC)/list.c $(RTOS_SRC)/portable/GCC/ARM_CM3/port.c $(STM_STD_PERIF)/src/stm32f10x_gpio.c $(STM_STD_PERIF)/src/stm32f10x_rcc.c $(STM_STD_PERIF)/src/stm32f10x_tim.c -o $(TARGET).elf
+	$(CC) $(CFLAGS) $(STM_STARTUP)/startup_stm32f10x_md.s $(TARGET).c liblab3.a $(RTOS_SRC)/portable/MemMang/heap_4.c $(RTOS_SRC)/tasks.c $(RTOS_SRC)/queue.c $(RTOS_SRC)/list.c $(RTOS_SRC)/timers.c $(RTOS_SRC)/croutine.c $(RTOS_SRC)/portable/GCC/ARM_CM3/port.c $(STM_STD_PERIF)/src/stm32f10x_gpio.c $(STM_STD_PERIF)/src/stm32f10x_rcc.c $(STM_STD_PERIF)/src/stm32f10x_tim.c -o $(TARGET).elf
 
 clean:
 	rm -rf *o $(TARGET).elf

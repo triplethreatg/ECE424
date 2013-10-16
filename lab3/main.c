@@ -4,11 +4,15 @@
 #include "stm32f10x.h"
 #include "lab3.h"
 
+#include "FreeRTOSConfig.h"
+
 #include "FreeRTOS.h"
-//#include "StackMacros.h"
 #include "semphr.h"
 #include "task.h"
 #include "portmacro.h"
+
+#define PCLK1		72000000
+
 
 unsigned char pidControl = 1;
 uint8_t count = 0;
@@ -20,7 +24,15 @@ TIM_OCInitTypeDef  TIM_OCInitStructure;
 // Global semaphore handler
 xSemaphoreHandle semaphore;
 
-MotorSpeeds* p_motorSpeedsPtr;
+MotorSpeeds p_motorSpeedsPtr;
+
+/* Keep the linker happy. */
+void assert_failed( unsigned portCHAR* pcFile, unsigned portLONG ulLine )
+{
+	for( ;; )
+	{
+	}
+}
 
 // Configure System Tick Timer
 void SysTick_Configuration(void)
@@ -48,7 +60,8 @@ void TIM3_Configuration(void)
   TIM3->CR1 = 0x00;
   
   // set prescale value
-  TIM3->PSC = (uint16_t)(72000000/24) - 1;
+  //TIM3->PSC = (uint16_t)(72000000/24) - 1;
+  TIM3->PSC = 0;
   TIM3->CR1 |= TIM_CR1_ARPE;    // Auto-reload preload enabled
   //TIM3->ARR = 15530;		// Auto reload value
   TIM3->ARR = 100;
@@ -68,8 +81,8 @@ void TIM3_Configuration(void)
   TIM3->CCMR2 |= TIM_CCMR2_OC3PE | TIM_CCMR2_OC4PE;
   
   // Stop motors
-  TIM3->CCR3 = 24;
-  TIM3->CCR4 = 24;
+  TIM3->CCR3 = 0;
+  TIM3->CCR4 = 0;
   
   /*
    * As the preload registers are transferred to the shadow registers only when an update event
@@ -114,24 +127,18 @@ depending on the CMS bits in the TIMx_CR1 register.
   // NVIC->ISER[0] |= (1 << TIM3_IRQn); // enable TIM2 int in NVIC
 }
 
-void setMotors(void)
-{
-    TIM3->CCR3 = 10 * p_motorSpeedsPtr->m1;
-    TIM3->CCR4 = 10 * p_motorSpeedsPtr->m2;
-    TIM4->CCR3 = 10 * p_motorSpeedsPtr->m3;
-    TIM4->CCR4 = 10 * p_motorSpeedsPtr->m4; 
-}
-
 // Configure Timer 4
 void TIM4_Configuration(void)
 {
   // clear CR1 register
   TIM4->CR1 = 0x00;
   // set prescale value
-  TIM4->PSC = (uint16_t)(72000000/24) - 1;
+  //TIM4->PSC = (uint16_t)(72000000/24) - 1;
+  TIM4->PSC = 0;
   TIM4->CR1 |= TIM_CR1_ARPE;		// Auto-reload enable
   //TIM4->ARR = 30380;			// Set auto reload value
-  TIM4->ARR = 2400;
+  //TIM4->ARR = 2400;
+  TIM4->ARR = 100;
   
   TIM4->DIER |= TIM_DIER_CC1IE;		// enable 2 CC interrupt channels
   TIM4->CCMR1 = 0;                     // chan 1 is output
@@ -145,8 +152,8 @@ void TIM4_Configuration(void)
   TIM4->CCMR2 |= TIM_CCMR2_OC3PE | TIM_CCMR2_OC4PE;
   
   // stop motors
-  TIM4->CCR3 = 24;
-  TIM4->CCR4 = 24;
+  TIM4->CCR3 = 0;
+  TIM4->CCR4 = 0;
   
   /*
    * As the preload registers are transferred to the shadow registers only when an update event
@@ -183,13 +190,10 @@ void RCC_Configuration(void)
 
   RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;  // enable PORTA 
   RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;	// enable PORTB
-  RCC->APB2ENR |= RCC_APB2ENR_TIM1EN;  // enable Timer1
-  
-  RCC->APB1ENR |= RCC_APB1ENR_TIM2EN | RCC_APB1ENR_TIM3EN | RCC_APB1ENR_TIM4EN;  // enable Timer2 3 4
 
   // Enable GPIO
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO | RCC_APB2Periph_GPIOB, ENABLE);
-  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2 | RCC_APB1Periph_TIM3 | RCC_APB1Periph_TIM4, ENABLE);
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3 | RCC_APB1Periph_TIM4, ENABLE);
 }
 
 // Configure System Clock
@@ -215,9 +219,9 @@ void SYSCLK_Configuration(void)
     RCC_PLLCmd(DISABLE);
     
     // Divide HCLK by 2
-    RCC_HCLKConfig(RCC_SYSCLK_Div2);
+    RCC_HCLKConfig(RCC_SYSCLK_Div1);
     
-    RCC_PCLK2Config(RCC_HCLK_Div1);
+    RCC_PCLK2Config(RCC_HCLK_Div2);
     
     RCC_PCLK1Config(RCC_HCLK_Div1);
     
@@ -243,68 +247,61 @@ void SYSCLK_Configuration(void)
 
 }
 
-void task_detectEmergency(void *pvParameters)
+void vDetectEmergencyTask(void *pvParameters)
 {
-  // Initialize delay wake time 
-  //portTickType wakeTime;
-  //portTickType frequency = 10;
-  //wakeTime = xTaskGetTickCount();
-  
-  // Execute & delay
+
   while(1){
-      xSemaphoreGive(semaphore);
       detectEmergency();
       vTaskDelay(10);
-  } 
+  }
 }
 
-void task_refreshSensorData(void *pvParameters)
+void vRefreshSensorDataTask(void *pvParameters)
 {
-    while(1){
-    // Block until available
+  while(1){
+    xSemaphoreTake(semaphore, 0);
     refreshSensorData();
+    // Release the semaphore
+    xSemaphoreGive(semaphore);
     vTaskDelay(100);
   }
 }
 
-void task_calculateOrientation(void *pvParameters)
+void vCalculateOrientationTask(void *pvParameters)
 {
-  // Initialize delay wake time 
-  //portTickType wakeTime;
-  //portTickType frequency = 100;
-  //wakeTime = xTaskGetTickCount();
-  
+
   // Execute & delay
   while(1){
     // Block until available
-    while (!(xSemaphoreTake(semaphore,0)==pdTRUE));
-    calculateOrientation();
-    vTaskDelay(100);
-  }
-}
-
-void task_updatePid(void *pvParameters)
-{
-  // Initialize delay wake time 
-  // portTickType wakeTime;
-  // portTickType frequency = 1000;
-  // wakeTime = xTaskGetTickCount();
-  
-  // Execute & delay
-  while(1){
-    updatePid(p_motorSpeedsPtr);
-    //setMotor1((uint16_t)(24 * p_motorSpeedsPtr->m1));
+    if(xSemaphoreTake(semaphore,0)==pdTRUE)
+      calculateOrientation();
     vTaskDelay(1000);
   }
 }
 
-void task_logDebugInfo(void *pvParameters)
+void vUpdatePidTask(void *pvParameters)
 {
-  // Initialize delay wake time 
-  // portTickType wakeTime;
-  // portTickType frequency = 1000;
-  // wakeTime = xTaskGetTickCount();
   
+  // Execute & delay
+  while(1){
+    updatePid(&p_motorSpeedsPtr);
+    TIM3->CCR3 = (uint16_t)(20 * p_motorSpeedsPtr.m1);
+    TIM3->CCR4 = (uint16_t)(20 * p_motorSpeedsPtr.m2);
+    TIM4->CCR3 = (uint16_t)(20 * p_motorSpeedsPtr.m3);
+    TIM4->CCR4 = (uint16_t)(20 * p_motorSpeedsPtr.m4);
+    /*
+    setMotor1((uint16_t)(24 * p_motorSpeedsPtr.m1));
+    setMotor2((uint16_t)(24 * p_motorSpeedsPtr.m2));
+    setMotor3((uint16_t)(24 * p_motorSpeedsPtr.m3));
+    setMotor4((uint16_t)(24 * p_motorSpeedsPtr.m4));
+    */
+    vTaskDelay(1000);
+  }
+}
+
+void vLogDebugInfoTask(void *pvParameters)
+{
+ 
   // Execute & delay
   while(1){
     logDebugInfo();
@@ -312,12 +309,8 @@ void task_logDebugInfo(void *pvParameters)
   }
 }
 
-void task_gLED(void *pvParameters)
+void vGreenLEDTask(void *pvParameters)
 {
-  // Initialize delay wake time 
-  // portTickType wakeTime;
-  // portTickType frequency = 500;
-  // wakeTime = xTaskGetTickCount();
   
   // Execute & delay
   while(1){
@@ -326,12 +319,8 @@ void task_gLED(void *pvParameters)
   }
 }
 
-void task_rLED(void *pvParameters)
+void vRedLEDTask(void *pvParameters)
 {
-  // Initialize delay wake time 
-  // portTickType wakeTime;
-  // portTickType frequency = 250;
-  // wakeTime = xTaskGetTickCount();
   
   // Execute & delay
   while(1){
@@ -342,46 +331,78 @@ void task_rLED(void *pvParameters)
 
 void task_Configuration(void)
 {
- 
+  
   // Create semaphore
-  vSemaphoreCreateBinary(semaphore);
+  //vSemaphoreCreateBinary(semaphore);
   
   // Semaphore not created
-  while(semaphore == NULL);
+  //while(semaphore == NULL);
   
   // Task Creations
-  xTaskCreate(task_detectEmergency, (signed char *) "Emergency", configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 5), NULL);
-  xTaskCreate(task_refreshSensorData, (signed char *) "Refresh", configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 4), NULL);
-  xTaskCreate(task_calculateOrientation, (signed char *) "Orientation", configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 3), NULL);
-  xTaskCreate(task_updatePid, (signed char *) "Update", configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 2), NULL);
-  xTaskCreate(task_logDebugInfo, (signed char *) "Log", configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 1), NULL);
-  xTaskCreate(task_rLED, (signed char *) "REDLED", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL);
-  xTaskCreate(task_gLED, (signed char *) "GREENLED" , configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL);
+  xTaskCreate(vDetectEmergencyTask, (signed char *) "Emergency", configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 5), NULL);
+  xTaskCreate(vRefreshSensorDataTask, (signed char *) "Refresh", configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 4), NULL);
+  xTaskCreate(vCalculateOrientationTask, (signed char *) "Orientation", configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 3), NULL);
+  xTaskCreate(vUpdatePidTask, (signed char *) "Update", configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 2), NULL);
+  xTaskCreate(vLogDebugInfoTask, (signed char *) "Log", configMINIMAL_STACK_SIZE, NULL, (tskIDLE_PRIORITY + 1), NULL);
+  xTaskCreate(vRedLEDTask, (signed char *) "REDLED", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL);
+  xTaskCreate(vGreenLEDTask, (signed char *) "GREENLED" , configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL);
+  
+  // Create Semaphore
+  vSemaphoreCreateBinary(semaphore);
   
 }
-
+/*
 void TIM_Configuration(void)
 {
-  // Initialize the motor timers
+  // Initialize motor timers
   TIM_TimeBaseStructure.TIM_Period = 2400;
-  TIM_TimeBaseStructure.TIM_Prescaler = (uint16_t)(72000000/24)-1;
+  TIM_TimeBaseStructure.TIM_Prescaler = (uint16_t)(PCLK1/2400)-1;
   TIM_TimeBaseStructure.TIM_ClockDivision = 0;
   TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
 
   // Set timers to PWM mode
   TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
   TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
-  TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High; 
+  TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
   
+  TIM_CtrlPWMOutputs(TIM3, ENABLE);
+  TIM_CtrlPWMOutputs(TIM4, ENABLE);
 }
-
-void setMotor1(uint16_t step)
+*/
+void setMotor1(uint16_t pulse)
 {
   TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);
-  TIM_OCInitStructure.TIM_Pulse = step;
+  TIM_OCInitStructure.TIM_Pulse = pulse;
 
   TIM_OC4Init(TIM3, &TIM_OCInitStructure);
   TIM_OC4PreloadConfig(TIM3, TIM_OCPreload_Enable);
+}
+
+void setMotor2(uint16_t pulse)
+{
+  TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);
+  TIM_OCInitStructure.TIM_Pulse = pulse;
+
+  TIM_OC3Init(TIM3, &TIM_OCInitStructure);
+  TIM_OC3PreloadConfig(TIM3, TIM_OCPreload_Enable);
+}
+
+void setMotor3(uint16_t pulse)
+{
+  TIM_TimeBaseInit(TIM4, &TIM_TimeBaseStructure);
+  TIM_OCInitStructure.TIM_Pulse = pulse;
+
+  TIM_OC4Init(TIM4, &TIM_OCInitStructure);
+  TIM_OC4PreloadConfig(TIM4, TIM_OCPreload_Enable);
+}
+
+void setMotor4(uint16_t pulse)
+{
+  TIM_TimeBaseInit(TIM4, &TIM_TimeBaseStructure);
+  TIM_OCInitStructure.TIM_Pulse = pulse;
+
+  TIM_OC3Init(TIM4, &TIM_OCInitStructure);
+  TIM_OC3PreloadConfig(TIM4, TIM_OCPreload_Enable);
 }
 
 // /*
@@ -426,9 +447,9 @@ int main(void)
   GPIO_PinRemapConfig(GPIO_PartialRemap_TIM3, ENABLE);
   
   // Setup timers
-  //TIM3_Configuration();
-  //TIM4_Configuration();
-  TIM_Configuration();
+  TIM3_Configuration();
+  TIM4_Configuration();
+  //TIM_Configuration();
   
   // FreeRTOS initialization
   task_Configuration();
