@@ -1,0 +1,6 @@
+crazyflie-firmware/modules/src/sensfusion6.c:// See: http://www.x-io.co.uk/open-source-ahrs-with-x-imu
+crazyflie-firmware/modules/src/sensfusion6.c:// See: http://www.x-io.co.uk/open-source-ahrs-with-x-imu
+crazyflie-firmware/drivers/src/nvic.c:  //http://www.st.com/mcu/forums-cat-6778-23.html
+crazyflie-firmware/drivers/src/ms5611.c: * Datasheet at http://www.meas-spec.com/downloads/MS5611-01BA03.pdf
+crazyflie-firmware/drivers/interface/ms5611.h: * Datasheet at http://www.meas-spec.com/downloads/MS5611-01BA03.pdf
+crazyflie-firmware/hal/src/eskylink.c: *  -> http://www.deviationtx.com/forum/protocol-development/1059-esky-protocol?q=/forum/protocol-development/1059-esky-protocol

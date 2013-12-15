@@ -1,0 +1,41 @@
+drivers/src/adc.c:  xTaskCreate(adcTask, (const signed char * const)"ADC",
+hal/src/uart.c:  xTaskCreate(uartRxTask, (const signed char * const)"UART-Rx",
+hal/src/radiolink.c:  xTaskCreate(radiolinkTask, (const signed char * const)"RadioLink",
+hal/src/pm.c:  xTaskCreate(pmTask, (const signed char * const)"PWRMGNT",
+hal/src/eskylink.c:  xTaskCreate(eskylinkTask, (const signed char * const)"EskyLink",
+lib/FreeRTOS/timers.c:			xReturn = xTaskCreate( prvTimerTask, ( const signed char * ) "Tmr Svc", ( unsigned short ) configTIMER_TASK_STACK_DEPTH, NULL, ( ( unsigned portBASE_TYPE ) configTIMER_TASK_PRIORITY ) | portPRIVILEGE_BIT, &xTimerTaskHandle );
+lib/FreeRTOS/timers.c:			xReturn = xTaskCreate( prvTimerTask, ( const signed char * ) "Tmr Svc", ( unsigned short ) configTIMER_TASK_STACK_DEPTH, NULL, ( ( unsigned portBASE_TYPE ) configTIMER_TASK_PRIORITY ) | portPRIVILEGE_BIT, NULL);
+lib/FreeRTOS/tasks.c:		xReturn = xTaskCreate( prvIdleTask, ( signed char * ) "IDLE", tskIDLE_STACK_SIZE, ( void * ) NULL, ( tskIDLE_PRIORITY | portPRIVILEGE_BIT ), &xIdleTaskHandle );
+lib/FreeRTOS/tasks.c:		xReturn = xTaskCreate( prvIdleTask, ( signed char * ) "IDLE", tskIDLE_STACK_SIZE, ( void * ) NULL, ( tskIDLE_PRIORITY | portPRIVILEGE_BIT ), NULL );
+lib/FreeRTOS/include/task.h: * Type by which tasks are referenced.  For example, a call to xTaskCreate
+lib/FreeRTOS/include/task.h: portBASE_TYPE xTaskCreate(
+lib/FreeRTOS/include/task.h: * xTaskCreate() can only be used to create a task that has unrestricted
+lib/FreeRTOS/include/task.h: * xTaskCreateRestricted().
+lib/FreeRTOS/include/task.h:	 xTaskCreate( vTaskCode, "NAME", STACK_SIZE, &ucParameterToPass, tskIDLE_PRIORITY, &xHandle );
+lib/FreeRTOS/include/task.h: * \defgroup xTaskCreate xTaskCreate
+lib/FreeRTOS/include/task.h:#define xTaskCreate( pvTaskCode, pcName, usStackDepth, pvParameters, uxPriority, pxCreatedTask ) xTaskGenericCreate( ( pvTaskCode ), ( pcName ), ( usStackDepth ), ( pvParameters ), ( uxPriority ), ( pxCreatedTask ), ( NULL ), ( NULL ) )
+lib/FreeRTOS/include/task.h: portBASE_TYPE xTaskCreateRestricted( xTaskParameters *pxTaskDefinition, xTaskHandle *pxCreatedTask );</pre>
+lib/FreeRTOS/include/task.h: * xTaskCreateRestricted() should only be used in systems that include an MPU
+lib/FreeRTOS/include/task.h: * for each of the normal xTaskCreate() parameters (see the xTaskCreate() API
+lib/FreeRTOS/include/task.h:	xTaskCreateRestricted( &xRegTest1Parameters, &xHandle );
+lib/FreeRTOS/include/task.h: * \defgroup xTaskCreateRestricted xTaskCreateRestricted
+lib/FreeRTOS/include/task.h:#define xTaskCreateRestricted( x, pxCreatedTask ) xTaskGenericCreate( ((x)->pvTaskCode), ((x)->pcName), ((x)->usStackDepth), ((x)->pvParameters), ((x)->uxPriority), (pxCreatedTask), ((x)->puxStackBuffer), ((x)->xRegions) )
+lib/FreeRTOS/include/task.h: * a call to xTaskCreateRestricted().  These regions can be redefined using
+lib/FreeRTOS/include/task.h: * \defgroup xTaskCreateRestricted xTaskCreateRestricted
+lib/FreeRTOS/include/task.h:	 xTaskCreate( vTaskCode, "NAME", STACK_SIZE, NULL, tskIDLE_PRIORITY, &xHandle );
+lib/FreeRTOS/include/task.h:	 xTaskCreate( vTaskCode, "NAME", STACK_SIZE, NULL, tskIDLE_PRIORITY, &xHandle );
+lib/FreeRTOS/include/task.h:	 xTaskCreate( vTaskCode, "NAME", STACK_SIZE, NULL, tskIDLE_PRIORITY, &xHandle );
+lib/FreeRTOS/include/task.h:	 xTaskCreate( vTaskCode, "NAME", STACK_SIZE, NULL, tskIDLE_PRIORITY, &xHandle );
+lib/FreeRTOS/include/task.h:	 xTaskCreate( vTaskCode, "NAME", STACK_SIZE, NULL, tskIDLE_PRIORITY, &xHandle );
+lib/FreeRTOS/include/task.h: * At least one task should be created via a call to xTaskCreate ()
+lib/FreeRTOS/include/task.h:	 xTaskCreate( vTaskCode, "NAME", STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
+lib/FreeRTOS/include/task.h:	 xTaskCreate( vTaskCode, "NAME", STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
+lib/FreeRTOS/include/task.h: * xTaskCreate() and xTaskCreateRestricted() macros.
+modules/src/system.c:  xTaskCreate(systemTask, (const signed char * const)"SYSTEM",
+modules/src/log.c:  xTaskCreate(logTask, (const signed char * const)"log",
+modules/src/param.c:	xTaskCreate(paramTask, (const signed char * const)"PARAM",
+modules/src/crtp.c:  xTaskCreate(crtpTxTask, (const signed char * const)"CRTP-Tx",
+modules/src/crtp.c:  xTaskCreate(crtpRxTask, (const signed char * const)"CRTP-Rx",
+modules/src/pidctrl.c:  xTaskCreate(pidCrtlTask, (const signed char * const)"PIDCrtl",
+modules/src/stabilizer.c:  xTaskCreate(stabilizerTask, (const signed char * const)"STABILIZER",
+modules/src/info.c:  xTaskCreate(infoTask, (const signed char * const)"Info",

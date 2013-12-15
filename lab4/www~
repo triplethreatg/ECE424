@@ -1,0 +1,277 @@
+crazyflie-firmware/config/config.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/config/nvicconf.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/config/FreeRTOSConfig.h:    *                  http://www.FreeRTOS.org/Documentation                  *
+crazyflie-firmware/config/FreeRTOSConfig.h:    can be viewed here: http://www.freertos.org/a00114.html and also obtained
+crazyflie-firmware/config/FreeRTOSConfig.h:    http://www.FreeRTOS.org - Documentation, latest information, license and
+crazyflie-firmware/config/FreeRTOSConfig.h:    http://www.SafeRTOS.com - A version that is certified for use in safety
+crazyflie-firmware/config/FreeRTOSConfig.h:    http://www.OpenRTOS.com - Commercial support, development, porting,
+crazyflie-firmware/config/FreeRTOSConfig.h: * See http://www.freertos.org/a00110.html.
+crazyflie-firmware/modules/src/comm.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/src/system.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/src/log.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/src/param.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/src/crtpservice.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/src/crtp.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/src/worker.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/src/pidctrl.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/src/console.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/src/controller.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/src/pid.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/src/stabilizer.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/src/commander.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/src/info.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/src/sensfusion6.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/src/sensfusion6.c:// See: http://www.x-io.co.uk/open-source-ahrs-with-x-imu
+crazyflie-firmware/modules/src/sensfusion6.c:// See: http://www.x-io.co.uk/open-source-ahrs-with-x-imu
+crazyflie-firmware/modules/interface/param.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/interface/commander.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/interface/worker.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/interface/comm.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/interface/stabilizer.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/interface/sensfusion6.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/interface/controller.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/interface/crtpservice.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/interface/info.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/interface/pidctrl.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/interface/pid.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/interface/log.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/interface/console.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/interface/crtp.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/modules/interface/system.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/lib/FreeRTOS/timers.c:    http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+crazyflie-firmware/lib/FreeRTOS/timers.c:     *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
+crazyflie-firmware/lib/FreeRTOS/timers.c:    viewed here: http://www.freertos.org/a00114.html and also obtained by
+crazyflie-firmware/lib/FreeRTOS/timers.c:     *    http://www.FreeRTOS.org/FAQHelp.html                               *
+crazyflie-firmware/lib/FreeRTOS/timers.c:    http://www.FreeRTOS.org - Documentation, books, training, latest versions, 
+crazyflie-firmware/lib/FreeRTOS/timers.c:    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+crazyflie-firmware/lib/FreeRTOS/timers.c:    http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High 
+crazyflie-firmware/lib/FreeRTOS/timers.c:    http://www.SafeRTOS.com - High Integrity Systems also provide a safety 
+crazyflie-firmware/lib/FreeRTOS/list.c:    http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+crazyflie-firmware/lib/FreeRTOS/list.c:     *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
+crazyflie-firmware/lib/FreeRTOS/list.c:    viewed here: http://www.freertos.org/a00114.html and also obtained by
+crazyflie-firmware/lib/FreeRTOS/list.c:     *    http://www.FreeRTOS.org/FAQHelp.html                               *
+crazyflie-firmware/lib/FreeRTOS/list.c:    http://www.FreeRTOS.org - Documentation, books, training, latest versions, 
+crazyflie-firmware/lib/FreeRTOS/list.c:    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+crazyflie-firmware/lib/FreeRTOS/list.c:    http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High 
+crazyflie-firmware/lib/FreeRTOS/list.c:    http://www.SafeRTOS.com - High Integrity Systems also provide a safety 
+crazyflie-firmware/lib/FreeRTOS/list.c:			   see http://www.freertos.org/Stacks-and-stack-overflow-checking.html
+crazyflie-firmware/lib/FreeRTOS/list.c:			   configMAX_SYSCALL_INTERRUPT_PRIORITY on http://www.freertos.org/a00110.html
+crazyflie-firmware/lib/FreeRTOS/list.c:		See http://www.freertos.org/FAQHelp.html for more tips.
+crazyflie-firmware/lib/FreeRTOS/tasks.c:    http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+crazyflie-firmware/lib/FreeRTOS/tasks.c:     *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
+crazyflie-firmware/lib/FreeRTOS/tasks.c:    viewed here: http://www.freertos.org/a00114.html and also obtained by
+crazyflie-firmware/lib/FreeRTOS/tasks.c:     *    http://www.FreeRTOS.org/FAQHelp.html                               *
+crazyflie-firmware/lib/FreeRTOS/tasks.c:    http://www.FreeRTOS.org - Documentation, books, training, latest versions, 
+crazyflie-firmware/lib/FreeRTOS/tasks.c:    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+crazyflie-firmware/lib/FreeRTOS/tasks.c:    http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High 
+crazyflie-firmware/lib/FreeRTOS/tasks.c:    http://www.SafeRTOS.com - High Integrity Systems also provide a safety 
+crazyflie-firmware/lib/FreeRTOS/portable/GCC/ARM_CM3/port.c:    http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+crazyflie-firmware/lib/FreeRTOS/portable/GCC/ARM_CM3/port.c:     *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
+crazyflie-firmware/lib/FreeRTOS/portable/GCC/ARM_CM3/port.c:    viewed here: http://www.freertos.org/a00114.html and also obtained by
+crazyflie-firmware/lib/FreeRTOS/portable/GCC/ARM_CM3/port.c:     *    http://www.FreeRTOS.org/FAQHelp.html                               *
+crazyflie-firmware/lib/FreeRTOS/portable/GCC/ARM_CM3/port.c:    http://www.FreeRTOS.org - Documentation, books, training, latest versions, 
+crazyflie-firmware/lib/FreeRTOS/portable/GCC/ARM_CM3/port.c:    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+crazyflie-firmware/lib/FreeRTOS/portable/GCC/ARM_CM3/port.c:    http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High 
+crazyflie-firmware/lib/FreeRTOS/portable/GCC/ARM_CM3/port.c:    http://www.SafeRTOS.com - High Integrity Systems also provide a safety 
+crazyflie-firmware/lib/FreeRTOS/portable/GCC/ARM_CM3/port.c:	See http://www.FreeRTOS.org/RTOS-Cortex-M3-M4.html */
+crazyflie-firmware/lib/FreeRTOS/portable/GCC/ARM_CM3/portmacro.h:    http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+crazyflie-firmware/lib/FreeRTOS/portable/GCC/ARM_CM3/portmacro.h:     *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
+crazyflie-firmware/lib/FreeRTOS/portable/GCC/ARM_CM3/portmacro.h:    viewed here: http://www.freertos.org/a00114.html and also obtained by
+crazyflie-firmware/lib/FreeRTOS/portable/GCC/ARM_CM3/portmacro.h:     *    http://www.FreeRTOS.org/FAQHelp.html                               *
+crazyflie-firmware/lib/FreeRTOS/portable/GCC/ARM_CM3/portmacro.h:    http://www.FreeRTOS.org - Documentation, books, training, latest versions, 
+crazyflie-firmware/lib/FreeRTOS/portable/GCC/ARM_CM3/portmacro.h:    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+crazyflie-firmware/lib/FreeRTOS/portable/GCC/ARM_CM3/portmacro.h:    http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High 
+crazyflie-firmware/lib/FreeRTOS/portable/GCC/ARM_CM3/portmacro.h:    http://www.SafeRTOS.com - High Integrity Systems also provide a safety 
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_4.c:    http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_4.c:     *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_4.c:    viewed here: http://www.freertos.org/a00114.html and also obtained by
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_4.c:     *    http://www.FreeRTOS.org/FAQHelp.html                               *
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_4.c:    http://www.FreeRTOS.org - Documentation, books, training, latest versions, 
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_4.c:    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_4.c:    http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High 
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_4.c:    http://www.SafeRTOS.com - High Integrity Systems also provide a safety 
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_4.c: * memory management pages of http://www.FreeRTOS.org for more information.
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_2.c:    http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_2.c:     *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_2.c:    viewed here: http://www.freertos.org/a00114.html and also obtained by
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_2.c:     *    http://www.FreeRTOS.org/FAQHelp.html                               *
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_2.c:    http://www.FreeRTOS.org - Documentation, books, training, latest versions, 
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_2.c:    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_2.c:    http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High 
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_2.c:    http://www.SafeRTOS.com - High Integrity Systems also provide a safety 
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_2.c: * memory management pages of http://www.FreeRTOS.org for more information.
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_1.c:    http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_1.c:     *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_1.c:    viewed here: http://www.freertos.org/a00114.html and also obtained by
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_1.c:     *    http://www.FreeRTOS.org/FAQHelp.html                               *
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_1.c:    http://www.FreeRTOS.org - Documentation, books, training, latest versions, 
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_1.c:    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_1.c:    http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High 
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_1.c:    http://www.SafeRTOS.com - High Integrity Systems also provide a safety 
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_1.c: * memory management pages of http://www.FreeRTOS.org for more information.
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_1.c:	http://www.FreeRTOS.org for more information. */
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_3.c:    http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_3.c:     *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_3.c:    viewed here: http://www.freertos.org/a00114.html and also obtained by
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_3.c:     *    http://www.FreeRTOS.org/FAQHelp.html                               *
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_3.c:    http://www.FreeRTOS.org - Documentation, books, training, latest versions, 
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_3.c:    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_3.c:    http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High 
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_3.c:    http://www.SafeRTOS.com - High Integrity Systems also provide a safety 
+crazyflie-firmware/lib/FreeRTOS/portable/MemMang/heap_3.c: * memory management pages of http://www.FreeRTOS.org for more information.
+crazyflie-firmware/lib/FreeRTOS/queue.c:    http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+crazyflie-firmware/lib/FreeRTOS/queue.c:     *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
+crazyflie-firmware/lib/FreeRTOS/queue.c:    viewed here: http://www.freertos.org/a00114.html and also obtained by
+crazyflie-firmware/lib/FreeRTOS/queue.c:     *    http://www.FreeRTOS.org/FAQHelp.html                               *
+crazyflie-firmware/lib/FreeRTOS/queue.c:    http://www.FreeRTOS.org - Documentation, books, training, latest versions, 
+crazyflie-firmware/lib/FreeRTOS/queue.c:    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+crazyflie-firmware/lib/FreeRTOS/queue.c:    http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High 
+crazyflie-firmware/lib/FreeRTOS/queue.c:    http://www.SafeRTOS.com - High Integrity Systems also provide a safety 
+crazyflie-firmware/lib/FreeRTOS/croutine.c:    http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+crazyflie-firmware/lib/FreeRTOS/croutine.c:     *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
+crazyflie-firmware/lib/FreeRTOS/croutine.c:    viewed here: http://www.freertos.org/a00114.html and also obtained by
+crazyflie-firmware/lib/FreeRTOS/croutine.c:     *    http://www.FreeRTOS.org/FAQHelp.html                               *
+crazyflie-firmware/lib/FreeRTOS/croutine.c:    http://www.FreeRTOS.org - Documentation, books, training, latest versions,
+crazyflie-firmware/lib/FreeRTOS/croutine.c:    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+crazyflie-firmware/lib/FreeRTOS/croutine.c:    http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High
+crazyflie-firmware/lib/FreeRTOS/croutine.c:    http://www.SafeRTOS.com - High Integrity Systems also provide a safety
+crazyflie-firmware/lib/FreeRTOS/include/list.h:    http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+crazyflie-firmware/lib/FreeRTOS/include/list.h:     *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
+crazyflie-firmware/lib/FreeRTOS/include/list.h:    viewed here: http://www.freertos.org/a00114.html and also obtained by
+crazyflie-firmware/lib/FreeRTOS/include/list.h:     *    http://www.FreeRTOS.org/FAQHelp.html                               *
+crazyflie-firmware/lib/FreeRTOS/include/list.h:    http://www.FreeRTOS.org - Documentation, books, training, latest versions, 
+crazyflie-firmware/lib/FreeRTOS/include/list.h:    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+crazyflie-firmware/lib/FreeRTOS/include/list.h:    http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High 
+crazyflie-firmware/lib/FreeRTOS/include/list.h:    http://www.SafeRTOS.com - High Integrity Systems also provide a safety 
+crazyflie-firmware/lib/FreeRTOS/include/task.h:    http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+crazyflie-firmware/lib/FreeRTOS/include/task.h:     *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
+crazyflie-firmware/lib/FreeRTOS/include/task.h:    viewed here: http://www.freertos.org/a00114.html and also obtained by
+crazyflie-firmware/lib/FreeRTOS/include/task.h:     *    http://www.FreeRTOS.org/FAQHelp.html                               *
+crazyflie-firmware/lib/FreeRTOS/include/task.h:    http://www.FreeRTOS.org - Documentation, books, training, latest versions,
+crazyflie-firmware/lib/FreeRTOS/include/task.h:    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+crazyflie-firmware/lib/FreeRTOS/include/task.h:    http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High
+crazyflie-firmware/lib/FreeRTOS/include/task.h:    http://www.SafeRTOS.com - High Integrity Systems also provide a safety 
+crazyflie-firmware/lib/FreeRTOS/include/semphr.h:    http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+crazyflie-firmware/lib/FreeRTOS/include/semphr.h:     *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
+crazyflie-firmware/lib/FreeRTOS/include/semphr.h:    viewed here: http://www.freertos.org/a00114.html and also obtained by
+crazyflie-firmware/lib/FreeRTOS/include/semphr.h:     *    http://www.FreeRTOS.org/FAQHelp.html                               *
+crazyflie-firmware/lib/FreeRTOS/include/semphr.h:    http://www.FreeRTOS.org - Documentation, books, training, latest versions, 
+crazyflie-firmware/lib/FreeRTOS/include/semphr.h:    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+crazyflie-firmware/lib/FreeRTOS/include/semphr.h:    http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High 
+crazyflie-firmware/lib/FreeRTOS/include/semphr.h:    http://www.SafeRTOS.com - High Integrity Systems also provide a safety 
+crazyflie-firmware/lib/FreeRTOS/include/mpu_wrappers.h:    http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+crazyflie-firmware/lib/FreeRTOS/include/mpu_wrappers.h:     *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
+crazyflie-firmware/lib/FreeRTOS/include/mpu_wrappers.h:    viewed here: http://www.freertos.org/a00114.html and also obtained by
+crazyflie-firmware/lib/FreeRTOS/include/mpu_wrappers.h:     *    http://www.FreeRTOS.org/FAQHelp.html                               *
+crazyflie-firmware/lib/FreeRTOS/include/mpu_wrappers.h:    http://www.FreeRTOS.org - Documentation, books, training, latest versions, 
+crazyflie-firmware/lib/FreeRTOS/include/mpu_wrappers.h:    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+crazyflie-firmware/lib/FreeRTOS/include/mpu_wrappers.h:    http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High 
+crazyflie-firmware/lib/FreeRTOS/include/mpu_wrappers.h:    http://www.SafeRTOS.com - High Integrity Systems also provide a safety 
+crazyflie-firmware/lib/FreeRTOS/include/portable.h:    http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+crazyflie-firmware/lib/FreeRTOS/include/portable.h:     *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
+crazyflie-firmware/lib/FreeRTOS/include/portable.h:    viewed here: http://www.freertos.org/a00114.html and also obtained by
+crazyflie-firmware/lib/FreeRTOS/include/portable.h:     *    http://www.FreeRTOS.org/FAQHelp.html                               *
+crazyflie-firmware/lib/FreeRTOS/include/portable.h:    http://www.FreeRTOS.org - Documentation, books, training, latest versions, 
+crazyflie-firmware/lib/FreeRTOS/include/portable.h:    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+crazyflie-firmware/lib/FreeRTOS/include/portable.h:    http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High 
+crazyflie-firmware/lib/FreeRTOS/include/portable.h:    http://www.SafeRTOS.com - High Integrity Systems also provide a safety 
+crazyflie-firmware/lib/FreeRTOS/include/croutine.h:    http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+crazyflie-firmware/lib/FreeRTOS/include/croutine.h:     *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
+crazyflie-firmware/lib/FreeRTOS/include/croutine.h:    viewed here: http://www.freertos.org/a00114.html and also obtained by
+crazyflie-firmware/lib/FreeRTOS/include/croutine.h:     *    http://www.FreeRTOS.org/FAQHelp.html                               *
+crazyflie-firmware/lib/FreeRTOS/include/croutine.h:    http://www.FreeRTOS.org - Documentation, books, training, latest versions, 
+crazyflie-firmware/lib/FreeRTOS/include/croutine.h:    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+crazyflie-firmware/lib/FreeRTOS/include/croutine.h:    http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High 
+crazyflie-firmware/lib/FreeRTOS/include/croutine.h:    http://www.SafeRTOS.com - High Integrity Systems also provide a safety 
+crazyflie-firmware/lib/FreeRTOS/include/queue.h:    http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+crazyflie-firmware/lib/FreeRTOS/include/queue.h:     *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
+crazyflie-firmware/lib/FreeRTOS/include/queue.h:    viewed here: http://www.freertos.org/a00114.html and also obtained by
+crazyflie-firmware/lib/FreeRTOS/include/queue.h:     *    http://www.FreeRTOS.org/FAQHelp.html                               *
+crazyflie-firmware/lib/FreeRTOS/include/queue.h:    http://www.FreeRTOS.org - Documentation, books, training, latest versions, 
+crazyflie-firmware/lib/FreeRTOS/include/queue.h:    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+crazyflie-firmware/lib/FreeRTOS/include/queue.h:    http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High 
+crazyflie-firmware/lib/FreeRTOS/include/queue.h:    http://www.SafeRTOS.com - High Integrity Systems also provide a safety 
+crazyflie-firmware/lib/FreeRTOS/include/queue.h: * Note 1:  See the documentation on http://wwwFreeRTOS.org/RTOS-queue-sets.html
+crazyflie-firmware/lib/FreeRTOS/include/queue.h: * Note 1:  See the documentation on http://wwwFreeRTOS.org/RTOS-queue-sets.html
+crazyflie-firmware/lib/FreeRTOS/include/FreeRTOS.h:    http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+crazyflie-firmware/lib/FreeRTOS/include/FreeRTOS.h:     *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
+crazyflie-firmware/lib/FreeRTOS/include/FreeRTOS.h:    viewed here: http://www.freertos.org/a00114.html and also obtained by
+crazyflie-firmware/lib/FreeRTOS/include/FreeRTOS.h:     *    http://www.FreeRTOS.org/FAQHelp.html                               *
+crazyflie-firmware/lib/FreeRTOS/include/FreeRTOS.h:    http://www.FreeRTOS.org - Documentation, books, training, latest versions, 
+crazyflie-firmware/lib/FreeRTOS/include/FreeRTOS.h:    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+crazyflie-firmware/lib/FreeRTOS/include/FreeRTOS.h:    http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High 
+crazyflie-firmware/lib/FreeRTOS/include/FreeRTOS.h:    http://www.SafeRTOS.com - High Integrity Systems also provide a safety 
+crazyflie-firmware/lib/FreeRTOS/include/StackMacros.h:    http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+crazyflie-firmware/lib/FreeRTOS/include/StackMacros.h:     *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
+crazyflie-firmware/lib/FreeRTOS/include/StackMacros.h:    viewed here: http://www.freertos.org/a00114.html and also obtained by
+crazyflie-firmware/lib/FreeRTOS/include/StackMacros.h:     *    http://www.FreeRTOS.org/FAQHelp.html                               *
+crazyflie-firmware/lib/FreeRTOS/include/StackMacros.h:    http://www.FreeRTOS.org - Documentation, books, training, latest versions, 
+crazyflie-firmware/lib/FreeRTOS/include/StackMacros.h:    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+crazyflie-firmware/lib/FreeRTOS/include/StackMacros.h:    http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High 
+crazyflie-firmware/lib/FreeRTOS/include/StackMacros.h:    http://www.SafeRTOS.com - High Integrity Systems also provide a safety 
+crazyflie-firmware/lib/FreeRTOS/include/timers.h:    http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+crazyflie-firmware/lib/FreeRTOS/include/timers.h:     *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
+crazyflie-firmware/lib/FreeRTOS/include/timers.h:    viewed here: http://www.freertos.org/a00114.html and also obtained by
+crazyflie-firmware/lib/FreeRTOS/include/timers.h:     *    http://www.FreeRTOS.org/FAQHelp.html                               *
+crazyflie-firmware/lib/FreeRTOS/include/timers.h:    http://www.FreeRTOS.org - Documentation, books, training, latest versions, 
+crazyflie-firmware/lib/FreeRTOS/include/timers.h:    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+crazyflie-firmware/lib/FreeRTOS/include/timers.h:    http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High 
+crazyflie-firmware/lib/FreeRTOS/include/timers.h:    http://www.SafeRTOS.com - High Integrity Systems also provide a safety 
+crazyflie-firmware/lib/FreeRTOS/include/projdefs.h:    http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+crazyflie-firmware/lib/FreeRTOS/include/projdefs.h:     *    >>> See http://www.FreeRTOS.org/Documentation for details. <<<     *
+crazyflie-firmware/lib/FreeRTOS/include/projdefs.h:    viewed here: http://www.freertos.org/a00114.html and also obtained by
+crazyflie-firmware/lib/FreeRTOS/include/projdefs.h:     *    http://www.FreeRTOS.org/FAQHelp.html                               *
+crazyflie-firmware/lib/FreeRTOS/include/projdefs.h:    http://www.FreeRTOS.org - Documentation, books, training, latest versions, 
+crazyflie-firmware/lib/FreeRTOS/include/projdefs.h:    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+crazyflie-firmware/lib/FreeRTOS/include/projdefs.h:    http://www.OpenRTOS.com - Real Time Engineers ltd license FreeRTOS to High 
+crazyflie-firmware/lib/FreeRTOS/include/projdefs.h:    http://www.SafeRTOS.com - High Integrity Systems also provide a safety 
+crazyflie-firmware/init/main.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/utils/src/cfassert.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/utils/src/version.vtpl: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/utils/src/filter.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/utils/src/configblock.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/utils/src/cpuid.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/utils/src/debug.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/utils/src/fp16.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/utils/interface/version.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/utils/interface/cfassert.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/utils/interface/cpuid.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/utils/interface/filter.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/utils/interface/fp16.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/utils/interface/configblock.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/utils/interface/debug.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/drivers/src/nrf24l01.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/drivers/src/adc.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/drivers/src/exti.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/drivers/src/motors.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/drivers/src/i2cdev.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/drivers/src/nvic.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/drivers/src/nvic.c:  //http://www.st.com/mcu/forums-cat-6778-23.html
+crazyflie-firmware/drivers/src/ms5611.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/drivers/src/ms5611.c: * Datasheet at http://www.meas-spec.com/downloads/MS5611-01BA03.pdf
+crazyflie-firmware/drivers/src/led.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/drivers/interface/led.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/drivers/interface/motors.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/drivers/interface/nrf24l01.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/drivers/interface/i2cdev.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/drivers/interface/adc.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/drivers/interface/nRF24L01reg.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/drivers/interface/nvic.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/drivers/interface/ms5611.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/drivers/interface/ms5611.h: * Datasheet at http://www.meas-spec.com/downloads/MS5611-01BA03.pdf
+crazyflie-firmware/drivers/interface/exti.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/hal/src/uart.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/hal/src/radiolink.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/hal/src/pm.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/hal/src/eskylink.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/hal/src/eskylink.c: *  -> http://www.deviationtx.com/forum/protocol-development/1059-esky-protocol?q=/forum/protocol-development/1059-esky-protocol
+crazyflie-firmware/hal/src/freeRTOSdebug.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/hal/src/imu.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/hal/src/ledseq.c: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/hal/interface/imu.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/hal/interface/uart.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/hal/interface/ledseq.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/hal/interface/freeRTOSdebug.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/hal/interface/pm.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/hal/interface/eskylink.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
+crazyflie-firmware/hal/interface/radiolink.h: * along with this program. If not, see <http://www.gnu.org/licenses/>.
